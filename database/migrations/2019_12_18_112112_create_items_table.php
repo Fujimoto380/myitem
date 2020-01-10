@@ -19,7 +19,7 @@ class CreateItemsTable extends Migration
             $table->string('code');
             $table->string('colortype');
             $table->string('image_path')->nullable();
-            $table->bigIncrements('userid');
+            $table->integer('userid');
             $table->timestamps();
         });
     }
