@@ -4,6 +4,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Item;
 use Illuminate\Support\Facades\Auth;
+use Storage;
 class ItemController extends Controller
 {
     public function add()
@@ -64,8 +65,8 @@ class ItemController extends Controller
             $item->colortype = 'wn';
         }
         if (isset($form['image'])) {
-            $path = $request->file('image')->store('public/image');
-            $item->image_path = basename($path);
+            $path = Storage::disk('s3')->putFile('/',$form['image'],'public');
+            $item->image_path = Storage::disk('s3')->url($path);
         } else {
             $item->image_path = 'noimage.jpg';
         }
@@ -145,8 +146,8 @@ class ItemController extends Controller
 
         // 画像の変更
         if (isset($item_form['image'])) {
-        $path = $request->file('image')->store('public/image');
-        $item->image_path = basename($path);
+        $path = Storage::disk('s3')->putFile('/',$form['image'],'public');
+        $item->image_path = Storage::disk('s3')->url($path);
         unset($item_form['image']);
         } elseif (isset($request->remove)) {
         $item->image_path = 'noimage.jpg';
