@@ -176,21 +176,21 @@ class ItemController extends Controller
         if ($cond_itemname != '') {
             // 検索されたら検索結果を取得する
             $posts = Item::where('itemname', $cond_itemname)->where('userid', Auth::id())->get();
-            $posts = $posts->sortByDesc('updated_at');
+            $posts = $posts->sortByDesc('created_at');
         } else if ($recommend != '') {
             // オススメ順
             $posts = Item::where('userid', Auth::id())->where('colortype', Auth::user()->pc)->get();
-            $posts = $posts->sortByDesc('updated_at');
+            $posts = $posts->sortByDesc('created_at');
             $add = Item::where('userid', Auth::id())->where('colortype', '<>', Auth::user()->pc)->get();
-            $add = $add->sortByDesc('updated_at');
+            $add = $add->sortByDesc('created_at');
             $posts = $posts->merge($add);
         } else if ($new != '') {
             $posts = Item::where('userid', Auth::id())->get();
-            $posts = $posts->sortByDesc('updated_at');
+            $posts = $posts->sortByDesc('created_at');
         } else {
             // それ以外はすべてを取得する
             $posts = Item::where('userid', Auth::id())->get();
-            $posts = $posts->sortByDesc('updated_at');
+            $posts = $posts->sortByDesc('created_at');
         }
     return view('admin.item.index', ['posts' => $posts, 'cond_itemname' => $cond_itemname]);
   }
