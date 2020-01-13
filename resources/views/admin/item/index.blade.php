@@ -63,7 +63,7 @@
 						        <div class="modal-dialog">
 						            <div class="modal-content">
 						                <div class="modal-header">
-						                    <h4 class="modal-title" id="myModalLabel" style="color: #555;">削除確認画面</h4>
+						                    <h4 class="modal-title" id="myModalLabel" style="color: #555;">削除確認</h4>
 						                </div>
 						                <div class="modal-body">
 						                    <label style="color: #555;">データを削除しますか？</label>
