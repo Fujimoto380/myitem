@@ -32,7 +32,7 @@
 
             .position-ref {
                 position: relative;
-                background-image: url(https://myitem.s3.us-east-2.amazonaws.com/storage/image/back-top.jpg);
+                background-image: url(https://myitem.s3.us-east-2.amazonaws.com/back-top.jpg);
                 background-position: center center;
                 background-repeat: no-repeat;
                 background-attachment: fixed;
