@@ -68,7 +68,7 @@ class ItemController extends Controller
             $path = Storage::disk('s3')->putFile('/',$form['image'],'public');
             $item->image_path = Storage::disk('s3')->url($path);
         } else {
-            $item->image_path = 'noimage.jpg';
+            $item->image_path = Storage::disk('s3')->url('noimage.jpg');
         }
         unset($form['_token']);
         unset($form['image']);
@@ -150,7 +150,7 @@ class ItemController extends Controller
         $item->image_path = Storage::disk('s3')->url($path);
         unset($item_form['image']);
         } elseif (isset($request->remove)) {
-        $item->image_path = 'noimage.jpg';
+        $item->image_path = Storage::disk('s3')->url('noimage.jpg');
         unset($item_form['remove']);
         }
         unset($item_form['_token']);
