@@ -146,12 +146,12 @@ class ItemController extends Controller
 
         // 画像の変更
         if (isset($item_form['image'])) {
-        $path = Storage::disk('s3')->putFile('/',$form['image'],'public');
-        $item->image_path = Storage::disk('s3')->url($path);
-        unset($item_form['image']);
+            $path = Storage::disk('s3')->putFile('/',$item_form['image'],'public');
+            $item->image_path = Storage::disk('s3')->url($path);
+            unset($item_form['image']);
         } elseif (isset($request->remove)) {
-        $item->image_path = Storage::disk('s3')->url('noimage.jpg');
-        unset($item_form['remove']);
+            $item->image_path = Storage::disk('s3')->url('noimage.jpg');
+            unset($item_form['remove']);
         }
         unset($item_form['_token']);
 
