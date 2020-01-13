@@ -32,7 +32,7 @@
 
             .position-ref {
                 position: relative;
-                background-image: url(storage/image/back-top.jpg);
+                background-image: url(https://myitem.s3.us-east-2.amazonaws.com/storage/image/back-top.jpg);
                 background-position: center center;
                 background-repeat: no-repeat;
                 background-attachment: fixed;
@@ -85,7 +85,7 @@
                     アイテムカラー診断
                 </div>
                 <p>黄み・青みカラーの見分け方がわからない…なんてことはありませんか？</p>
-                <p style="margin-bottom: 30px;">服・バッグなどのカラーコードをあなたのパーソナルカラーと比較し、あなたに似合う色選びをお手伝いします。</p>
+                <p style="margin-bottom: 30px;">服・バッグなどのカラーコード��あなたのパーソナルカラーと比較し、あなたに似合う色選びをお手伝いします。</p>
             @if (Route::has('login'))
                 <div class="links">
                     @auth
