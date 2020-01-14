@@ -4,22 +4,21 @@
 @section('content')
     <div class="container">
         <div class="row">
-            <h2>あなたのアイテム一覧</h2>
+            <h2 style="padding-left: 0.5rem;">あなたのアイテム一覧</h2>
         </div>
-        <div class="row" style="margin-bottom: 10px;">
-            <div class="col-md-4">
+        <div class="row">
+            <div class="col-md-7" style="margin-bottom: 0.5rem;">
                 <a href="{{ action('Admin\ItemController@add') }}" role="button" class="btn btn-outline-primary">新規作成</a>
                 <form style="display: inline-block;" action="{{ action('Admin\ItemController@index') }}" method="get">
                     <input type="submit" class="btn btn-primary" name="new" value="新着順">
                     <input type="submit" class="btn btn-primary" name="recommend" value="オススメ順">
                 </form>
             </div>
-            <div class="col-md-8">
+            <div class="col-md-5">
                 <form action="{{ action('Admin\ItemController@index') }}" method="get">
                     <div class="form-group row">
-                        <label class="col-md-2">アイテム名</label>
-                        <div class="col-md-8">
-                            <input type="text" class="form-control" name="cond_itemname" value="{{ $cond_itemname }}">
+                        <div class="col-md-8" style="padding-bottom: 0.5rem;">
+                            <input type="text" placeholder="アイテム名" class="form-control" name="cond_itemname" value="{{ $cond_itemname }}">
                         </div>
                         <div class="col-md-2">
                             {{ csrf_field() }}
@@ -66,7 +65,7 @@
 						                    <h4 class="modal-title" id="myModalLabel" style="color: #555;">削除確認</h4>
 						                </div>
 						                <div class="modal-body">
-						                    <label style="color: #555;">データを削除しますか？</label>
+						                    <label style="color: #555;">{{ \Str::limit($item->itemname, 100) }}を削除しますか？</label>
 						                </div>
 						                <div class="modal-footer">
 						                    <button type="button" class="btn btn-default" data-dismiss="modal">閉じる</button>
