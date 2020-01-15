@@ -10,7 +10,7 @@
         <meta name="csrf-token" content="{{ csrf_token() }}">
 
         {{-- 各ページごとにtitleタグを入れるために@yieldで空けておきます。 --}}
-        <title>@yield('title')</title>
+        <title>@yield('title')｜【カラータイプを知ろう】アイテムカラー診断</title>
 
         <!-- Scripts -->
          {{-- Laravel標準で用意されているJavascriptを読み込みます --}}
